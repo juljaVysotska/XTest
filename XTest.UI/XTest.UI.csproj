@@ -94,5 +94,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XTest.VM\XTest.VM.csproj">
+      <Project>{d092725b-9dfc-49fc-9c51-05a2550541ce}</Project>
+      <Name>XTest.VM</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
