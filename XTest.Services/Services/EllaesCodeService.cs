@@ -37,6 +37,16 @@ namespace XTest.Services.Services
             return array;
         }
 
+        public int[][] GenerateArrayWithException(int x, int y)
+        {
+            Random rand = new Random();
+            int[][] array = Code(GenerateArray(x, y));
+            int i = rand.Next(0, array.Length - 1);
+            int j = rand.Next(0, array[0].Length - 1);
+            array[i][j] = (array[i][j] + 1) % 2;
+            return array;
+        }
+
         private int Sum(int[] array)
         {
             int sum = 0;
@@ -77,10 +87,34 @@ namespace XTest.Services.Services
 
         public int[][] Decode(int[][] array)
         {
-            List<int[]> sum = new List<int[]>();
+            int a = 0, b = 0;
+            int[][] arr = array;
+            Array.Resize(ref arr, arr.Length - 1);
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Array.Resize(ref arr[i], arr[i].Length - 1);
+            }
+            arr = Code(arr);
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array[0].Length; j++)
+                {
+                    if (i != array.Length - 1 | j != array[0].Length - 1)
+                    {
+                        if (i == array.Length - 1 && array[i][j] != arr[i][j])
+                        {
+                            b = j;
 
-            
-            return null;
+                        }
+                        else if (j == array[0].Length - 1 && array[i][j] != arr[i][j])
+                        {
+                            a = i;
+                        }
+                    }
+                }
+            }
+            array[a][b] = (array[a][b] + 1) % 2;
+            return array;
         }
     }
 }
