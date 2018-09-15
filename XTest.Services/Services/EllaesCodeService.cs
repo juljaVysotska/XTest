@@ -16,7 +16,7 @@ namespace XTest.Services.Services
                 Array.Resize(ref arr[i], arr[i].Length + 1);
                 arr[i][arr[i].Length - 1] = Sum(arr[i]) % 2;
             }
-            arr[arr.Length - 1] = Sum(arr);
+            arr[arr.Length - 1] = SumForColumn(arr);
 
             return arr;
         }
@@ -47,11 +47,11 @@ namespace XTest.Services.Services
             return sum;
         }
 
-        private int[] Sum(int[][] array)
+        private int[] SumForColumn(int[][] array)
         {
             int[] sum = new int[array[0].Length];
             sum.Initialize();
-            for (int i = 0; i < array[0].Length - 1; i++)
+            for (int i = 0; i < array[0].Length; i++)
             {
                 for (int j = 0; j < array.Length; j++)
                 {
@@ -61,8 +61,25 @@ namespace XTest.Services.Services
             return sum;
         }
 
-        public int[][] Decode()
+        private int[] SumForRaw(int[][] array)
         {
+            int[] sum = new int[array.Length];
+            sum.Initialize();
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    sum[i] = (sum[i] + array[i][j]) % 2;
+                }
+            }
+            return sum;
+        }
+
+        public int[][] Decode(int[][] array)
+        {
+            List<int[]> sum = new List<int[]>();
+
+            
             return null;
         }
     }
