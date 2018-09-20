@@ -4,7 +4,7 @@ using System.Text;
 
 namespace XTest.Services.Services
 {
-    class IterativeCodeService
+    public class IterativeCodeService
     {
 
         public int q { get; set; }

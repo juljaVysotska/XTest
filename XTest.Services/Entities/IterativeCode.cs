@@ -4,7 +4,7 @@ using System.Text;
 
 namespace XTest.Services.Entities
 {
-    class IterativeCode
+    public class IterativeCode
     {
         public int[][] Array { get; set; }
     }

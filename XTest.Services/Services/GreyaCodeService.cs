@@ -4,7 +4,7 @@ using System.Text;
 
 namespace XTest.Services.Services
 {
-    class GreyaCodeService
+    public class GreyaCodeService
     {
         public string x { get; set; }
 
